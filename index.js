@@ -2,11 +2,6 @@ const linebot = require('linebot');
 var express = require('express');
 var getJSON = require('get-json');
 
-var timer;
-var pm = [];
-_getJSON()
-_bot();
-
 //建立linebot物件
 var bot = linebot({
   //自訂環境變數
@@ -14,6 +9,11 @@ var bot = linebot({
 	channelSecret: process.env.CHANNEL_SECRET,
 	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 });
+
+var timer;
+var pm = [];
+_getJSON()
+_bot();
 
 const app = express();
 

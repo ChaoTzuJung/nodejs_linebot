@@ -86,6 +86,9 @@ function _bot() {
           replyMsg = '請輸入正確的地點';
         }
       }
+      if(msg.indexOf('日幣') != -1) {
+        jp()
+      }
       if (replyMsg == '') {
         replyMsg = '不知道「'+msg+'」是什麼意思 :p';
       }

@@ -9,7 +9,7 @@ getJSON_bot();
 PM25_bot();
 
 //建立linebot物件
-const bot = linebot({
+var bot = linebot({
   //自訂環境變數
 	channelId: process.env.CHANNEL_ID,
 	channelSecret: process.env.CHANNEL_SECRET,

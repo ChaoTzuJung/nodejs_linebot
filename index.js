@@ -33,6 +33,19 @@ bot.on('message', function (event) {
 		console.log('Error', error);
 	});
 });
+//重複我們說過的話
+bot.on('message', function(event) {
+  if (event.message.type = 'text') {
+    var msg = event.message.text;
+    event.reply(msg).then(function(data) {
+      // success 
+      console.log(msg);
+    }).catch(function(error) {
+      // error 
+      console.log('error');
+    });
+  }
+});
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
 // var server = app.listen(process.env.PORT || 8080, function() {

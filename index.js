@@ -1,6 +1,8 @@
 const linebot = require('linebot');
 var express = require('express');
 var getJSON = require('get-json');
+var request = require("request");
+
 
 //建立linebot物件
 var bot = linebot({

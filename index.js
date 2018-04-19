@@ -86,10 +86,7 @@ function _bot() {
       if (replyMsg == '') {
         replyMsg = '不知道「'+msg+'」是什麼意思 :p';
       }
-      if (msg.indexOf('日幣') != -1) {
-        _japan()
-        replyMsg = '日幣幣值是' + jp;
-      }
+    
       event.reply(replyMsg).then(function(data) {
         console.log(replyMsg);
       }).catch(function(error) {
@@ -114,24 +111,26 @@ function _getJSON() {
 }
 
 //主動通知日幣匯率
-function _japan() {
+var jp = function() {
   clearTimeout(timer2);
   request({
     url: "http://rate.bot.com.tw/Pages/Static/UIP003.zh-TW.htm",
     method: "GET"
   }, function(error, response, body) {
     if (error || !body) {
-      return;
+      return "有錯誤";
     } else {
+      console.log("所有資料 "+ body);
       var $ = cheerio.load(body);
       var target = $(".rate-content-sight.text-right.print_hide");
-      var jp = target[15].children[0].data;
-      console.log(jp);
-      if (jp < 0.28) {
-        bot.push('使用者 ID', '現在日幣 ' + jp + '，該買啦！');
+      console.log("target: "+ target);
+      console.log("日幣幣值: "+ target[15].children[0].data);
+      moneyJP = target[15].children[0].data;
+      console.log("moneyJP: "+ moneyJP);
+      if (moneyJP < 0.28) {
+        bot.push('兄弟！', '現在日幣 ' + moneyJP + '，該買啦！');
       }
-      timer2 = setInterval(_japan, 120000);
-      return jp
+      timer2 = setInterval(jp, 120000);
     }
   });
 }

@@ -11,6 +11,7 @@ var bot = linebot({
 });
 
 var timer;
+var timer2;
 var pm = [];
 _getJSON()
 _bot();

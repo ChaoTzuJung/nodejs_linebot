@@ -42,6 +42,7 @@ bot.on('message', function (event) {
 	  });
 });
 //重複我們說過的話
+/*
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
     var msg = event.message.text;
@@ -61,7 +62,7 @@ bot.on('message', function(event) {
     });
   }
 });
-
+*/
 function _bot() {
   bot.on('message', function(event) {
     if (event.message.type == 'text') {

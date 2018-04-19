@@ -133,12 +133,13 @@ var jp = function() {
       var target = $(".rate-content-sight.text-right.print_hide");
       console.log("target: "+ target);
       console.log("日幣幣值: "+ target[15].children[0].data);
-      moneyJP = target[15].children[0].data;
+      var moneyJP = target[15].children[0].data;
       console.log("moneyJP: "+ moneyJP);
       if (moneyJP < 0.28) {
         bot.push('兄弟！', '現在日幣 ' + moneyJP + '，該買啦！');
       }
       timer2 = setInterval(jp, 120000);
+      return moneyJP
     }
   });
 }

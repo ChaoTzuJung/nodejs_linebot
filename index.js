@@ -27,13 +27,14 @@ const linebotParser = bot.parser();
 
 //處理首頁請求
 app.get('/',function(req,res){
-  res.send('Hello World!');
+  res.send('Deploy Successfully!');
 });
 
 //處理line訊息的伺服器請求
 app.post('/linewebhook', linebotParser);
 
 //處理訊息事件
+/*
 bot.on('message', function (event) {
   //回覆收到的訊息文字
   event.reply(event.message.text)
@@ -46,6 +47,8 @@ bot.on('message', function (event) {
 		  console.log('Error', error);
 	  });
 });
+*/
+
 //重複我們說過的話
 /*
 bot.on('message', function(event) {

@@ -88,6 +88,8 @@ function _bot() {
       }
       if(msg.indexOf('日幣') != -1) {
         jp()
+        console.log('開始搜尋日幣');
+        replyMsg = '日幣幣值是： ' + moneyJP;
       }
       if (replyMsg == '') {
         replyMsg = '不知道「'+msg+'」是什麼意思 :p';

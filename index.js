@@ -131,6 +131,7 @@ function _japan() {
         bot.push('使用者 ID', '現在日幣 ' + jp + '，該買啦！');
       }
       timer2 = setInterval(_japan, 120000);
+      return jp
     }
   });
 }

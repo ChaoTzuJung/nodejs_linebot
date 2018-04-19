@@ -4,9 +4,8 @@ var getJSON = require('get-json');
 
 var timer;
 var pm = [];
-getJSON_bot();
-
-PM25_bot();
+_getJSON()
+_bot();
 
 //建立linebot物件
 var bot = linebot({
@@ -63,7 +62,7 @@ bot.on('message', function(event) {
   }
 });
 
-function PM25_bot() {
+function _bot() {
   bot.on('message', function(event) {
     if (event.message.type == 'text') {
       var msg = event.message.text;
@@ -89,9 +88,10 @@ function PM25_bot() {
       });
     }
   });
+
 }
 
-function getJSON_bot() {
+function _getJSON() {
   clearTimeout(timer);
   getJSON('http://opendata2.epa.gov.tw/AQX.json', function(error, response) {
     response.forEach(function(e, i) {
@@ -101,15 +101,15 @@ function getJSON_bot() {
       pm[i][2] = e.PM10 * 1;
     });
   });
-  timer = setInterval(getJSON_bot, 1800000); //每半小時抓取一次新資料
+  timer = setInterval(_getJSON, 1800000); //每半小時抓取一次新資料
 }
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
-// var server = app.listen(process.env.PORT || 8080, function() {
-//   var port = server.address().port;
-//   console.log("LineBot is running on port", port);
-// });
-
-app.listen(process.env.PORT || 80, function () {
-	console.log('LineBot is running.');
+var server = app.listen(process.env.PORT || 8080, function() {
+  var port = server.address().port;
+  console.log("LineBot is running on port", port);
 });
+
+// app.listen(process.env.PORT || 80, function () {
+// 	console.log('LineBot is running.');
+// });

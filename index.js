@@ -19,7 +19,6 @@ var timer2;
 var pm = [];
 _getJSON()
 _bot();
-_japan()
 
 const app = express();
 

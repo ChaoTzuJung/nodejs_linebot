@@ -101,7 +101,7 @@ function getJSON_bot() {
       pm[i][2] = e.PM10 * 1;
     });
   });
-  timer = setInterval(_getJSON, 1800000); //每半小時抓取一次新資料
+  timer = setInterval(getJSON_bot, 1800000); //每半小時抓取一次新資料
 }
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換

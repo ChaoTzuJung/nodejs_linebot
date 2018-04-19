@@ -87,7 +87,9 @@ function _bot() {
       if (replyMsg == '') {
         replyMsg = '不知道「'+msg+'」是什麼意思 :p';
       }
-
+      if (msg.indexOf('日幣') != -1) {
+        _japan()
+      }
       event.reply(replyMsg).then(function(data) {
         console.log(replyMsg);
       }).catch(function(error) {
@@ -124,7 +126,7 @@ function _japan() {
       var $ = cheerio.load(body);
       var target = $(".rate-content-sight.text-right.print_hide");
       console.log(target[15].children[0].data);
-      var jp = target[15].children[0].data;
+      jp = target[15].children[0].data;
       if (jp < 0.28) {
         bot.push('使用者 ID', '現在日幣 ' + jp + '，該買啦！');
       }
